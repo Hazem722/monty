@@ -18,8 +18,6 @@ void pstr(stack_t **stack, unsigned int line_number)
 			break;
 		if (curr->n > 0 && curr->n <= 127)
 			printf("%c", curr->n);
-		else
-			handle_error(ERR_PCH_USG, NULL, line_number, NULL);
 		curr = curr->next;
 	}
 
