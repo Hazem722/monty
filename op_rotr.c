@@ -7,7 +7,7 @@
   *
   * Return: ...
   */
-void rotr(stack_t **stack, unsigned int line_number)
+void _rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = NULL, *last = NULL;
 	(void) line_number;
