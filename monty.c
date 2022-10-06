@@ -15,8 +15,7 @@ int main(int argn, char *args[])
 	size_t line_len = 0;
 	unsigned int line_num = 1;
 	int readed = 0, op_status = 0;
-	char *filename = NULL, *op_code = NULL, *op_param = NULL;
-	char *buff = NULL;
+	char *filename = NULL, *op_code = NULL, *op_param = NULL, *buff = NULL;
 
 	filename = args[1];
 	check_args_num(argn);
@@ -33,9 +32,9 @@ int main(int argn, char *args[])
 				continue;
 			}
 			op_param = strtok(NULL, "\t\n ");
-			op_status = handle_execution(op_code, op_param, line_num);
+			op_status = handle_execution(op_code, op_param, line_num, op_status);
 
-			if (op_status >= 100)
+			if (op_status >= 100 && op_status < 300)
 			{
 				fclose(fd);
 				handle_error(op_status, op_code, line_num, buff);
