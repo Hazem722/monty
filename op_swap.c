@@ -21,4 +21,5 @@ void swap(stack_t **stack, unsigned int line_number)
 		(*stack)->n = (*stack)->next->n;
 		(*stack)->next->n = temp;
 	}
+	handle_error(ERR_SWAP_USG, NULL, line_number, NULL);
 }
