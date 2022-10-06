@@ -4,7 +4,7 @@ PROGRAM = monty.run
 FILES.c = *.c
 FILES.h = monty.h
 
-CC = gcc48
+CC = gcc
 WFLAG1 = -Wall
 WFLAG2 = -Wextra
 WFLAG3 = -Werror
