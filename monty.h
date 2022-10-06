@@ -23,6 +23,8 @@
 #define ERR_DIV_ZRO		208
 #define ERR_MUL_USG		209
 #define ERR_MOD_USG		210
+#define ERR_PCH_USG		211
+#define ERR_PCH_EMP		212
 
 #include <ctype.h>
 #include <fcntl.h>
@@ -73,6 +75,7 @@ int handle_execution(char *op_code, char *op_param, unsigned int line);
 void handle_error(int errno, char *opcode, unsigned int line, char *buff);
 void handle_cerror(int errno, char *opcode, unsigned int line);
 void handle_uerror(int errno, unsigned int line);
+void handle_more_uerror(int errno, unsigned int line);
 void (*pick_func(char *s))(stack_t **, unsigned int);
 unsigned int count_stack(stack_t *stack);
 void push(stack_t **stack, unsigned int param);
@@ -86,5 +89,6 @@ void sub(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 #endif
