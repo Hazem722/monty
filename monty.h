@@ -69,7 +69,7 @@ int check_push_param(char *param);
 int check_digits(char *s);
 void frees_stack(void);
 int handle_execution(char *op_code, char *op_param, unsigned int line);
-void handle_error(int errno, char *opcode, unsigned int line);
+void handle_error(int errno, char *opcode, unsigned int line, char *buff);
 void handle_cerror(int errno, char *opcode, unsigned int line);
 void handle_uerror(int errno, unsigned int line);
 void (*pick_func(char *s))(stack_t **, unsigned int);
