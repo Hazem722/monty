@@ -64,6 +64,7 @@ typedef struct instruction_s
 extern stack_t *head;
 
 void check_args_num(int argn);
+FILE *open_file(char *filename);
 void check_access_rights(char *filename);
 int check_push_param(char *param);
 int check_digits(char *s);

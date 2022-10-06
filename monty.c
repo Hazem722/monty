@@ -20,18 +20,18 @@ int main(int argn, char *args[])
 
 	filename = args[1];
 	check_args_num(argn);
-	check_access_rights(filename);
-	fd = fopen(filename, "r");
-	if (!fd)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		exit(EXIT_FAILURE);
-	}
+	fd = open_file(filename);
+
 	while ((readed = getline(&buff, &line_len, fd)) != -1)
 	{
 		op_code = strtok(buff, "\t\n ");
 		if (op_code)
 		{
+			if (op_code[0] == '#')
+			{
+				++line_num;
+				continue;
+			}
 			op_param = strtok(NULL, "\t\n ");
 			op_status = handle_execution(op_code, op_param, line_num);
 
