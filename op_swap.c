@@ -14,7 +14,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	length = count_stack(*stack);
 
 	if (length < 2)
-		handle_error(ERR_SWAP_USG, NULL, line_number);
+		handle_error(ERR_SWAP_USG, NULL, line_number, NULL);
 
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = temp;
