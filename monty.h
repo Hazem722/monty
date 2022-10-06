@@ -24,6 +24,7 @@
 #define ERR_MUL_USG		209
 #define ERR_MOD_USG		210
 
+#include <ctype.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -65,6 +66,7 @@ extern stack_t *head;
 void check_args_num(int argn);
 void check_access_rights(char *filename);
 int check_push_param(char *param);
+int check_digits(char *s);
 void frees_stack(void);
 int handle_execution(char *op_code, char *op_param, unsigned int line);
 void handle_error(int errno, char *opcode, unsigned int line);

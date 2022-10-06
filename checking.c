@@ -35,16 +35,31 @@ void check_access_rights(char *filename)
   */
 int check_push_param(char *param)
 {
-	int diff = 0, conv = 0;
-
-	if (param == NULL)
+	if (param == NULL || check_digits(param) == 0)
 		return (ERR_PUSH_USG);
-
-	diff = strcmp(param, "0");
-	conv = atoi(param);
-
-	if (diff != 0 && conv == 0)
-		return (ERR_PUSH_USG);
-
 	return (VALID_PARM);
+}
+
+/**
+  * check_digits - ...
+  * @s: ...
+  *
+  * Return: ...
+  */
+int check_digits(char *s)
+{
+    int status = 1;
+
+    while (*s != '\0')
+    {
+        if (s[0] == 45)
+            continue;
+        if (isdigit(*s) == 0)
+        {
+            status = 0;
+            return (status);
+        }
+        ++s;
+    }
+    return (status);
 }
